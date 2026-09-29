@@ -4,15 +4,20 @@ class Solution {
             return false;
         }
 
-        int original = x;
-        int reverse = 0;
+        String s = String.valueOf(x);
 
-        while (x > 0) {
-            int digit = x % 10;
-            reverse = reverse * 10 + digit;
-            x = x / 10;
+        int i = 0;
+        int j = s.length() - 1;
+
+        while (i < j) {
+            if (s.charAt(i) != s.charAt(j)) {
+                return false;
+            }
+
+            i++;
+            j--;
         }
 
-        return original == reverse;
+        return true;
     }
 }
